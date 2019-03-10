@@ -1,0 +1,20 @@
+<div class="col-md-12">
+  <div class="row">
+    <div class="col-md-3 text-center puntero"
+      *ngFor="let artist of artists"
+      >
+      <img [src]="artist.images| withoutPhoto" class="img-fluid img-thumbnail">
+      <p class="card-text">
+        <span *ngFor="let author of artist.artists" class="puntero" 
+          [routerLink]="['/artist', author.id, currentUrl]"
+          >
+          {{ author.name }}
+        </span>
+        <span *ngIf="!artist.artists" [routerLink]="['/artist', artist.id, currentUrl]" class="puntero" >
+          {{ artist.name }}
+        </span>
+      </p>
+      <hr>
+    </div>
+  </div>
+</div>
